@@ -1,0 +1,103 @@
+---
+title: "Measurement"
+subtitle: "Evaluation, part 2 --- PMAP 8521, SEMESTER YEAR"
+author: "YOUR NAME HERE"  # Replace with your actual name
+date: "DATE GOES HERE"  # Replace with the date
+date-format: "long"
+format:
+  html:
+    toc: true
+    knitr:
+      opts_chunk: 
+        dev: "ragg_png"
+        dpi: 300
+  typst:
+    toc: true
+    include-before-body: 
+      text: |
+        #show link: set text(fill: rgb("e16462"))
+
+        // Keep track of previous heading levels
+        #let last-heading-level = state("last-heading-level", 0)
+
+        // Add page breaks before all level 1 headings
+        // Add page breaks before level 2 headings that don't come after level 1
+        #show heading: it => {
+          context {
+            let prev-level = last-heading-level.get()
+
+            if it.level == 1 {
+              pagebreak(weak: true)
+              last-heading-level.update(1)
+            } else if it.level == 2 {
+              if prev-level != 1 {
+                pagebreak(weak: true)
+              }
+              last-heading-level.update(2)
+            } else {
+              last-heading-level.update(it.level)
+            }
+          }
+          it
+        }
+  pdf:
+    toc: true
+  docx:
+    toc: true
+---
+
+# Part 1: Measurement and abstraction for full-day kindergarten
+
+There are no exact answers here, since you all will have identified different outcomes and figured out different ways of measuring them. I've included one here as a guide.
+
+## Possible outcomes
+
+The full-day kindergarten program has several intended outcomes: 
+
+- Closing the gap between low achievers and high achievers
+- Enhance reading skills
+- Improve grades
+- Increase commitment to school
+
+## Outcome 2: Enhance reading skills
+
+There are a lot of possible characteristics for this outcome, including:
+
+- Sight word recognition
+- Fluent reading with few pauses
+- Comprehension
+- Recall and remembrance
+- Love of reading
+- Ability to identify main arguments or characters or plot
+
+For kindergartners, one way to capture reading skills is to look at (1) *word recognition*, since they should be moving beyond piecing together the individual phonemes in words like "the" and recognize the entire word unit quickly, (2) *fluency*, since they should be able to put words together with few gaps and pauses, and (3) *comprehension*, since they should be able to understand, remember, and summarize what they've read.
+
+I have no idea if these are accurate attributes of reading skill—I'm not an expert in early childhood education. But we'll go with it for this. 
+
+Here's how we can potentially measure these outcomes:
+
+### Attribute 1: Sight word recognition
+
+- *Measurable definition*: Student has the ability to recognize 200 (or some number) words by sight.
+- *Ideal measurement*: Present student with 200 flashcards and measure how fast they read the words
+- *Feasible measurement*: 200 flashcards in one sitting is intense, especially if measurements are repeated. It might be better to show students 10-15 random cards at a time to take a kind of random sample of words. Repeated measurements might cause burnout, so spread out tests over time.
+- *Measurement of program effect*: Measure the average speed of 10 flashcards at the beginning of every month in both half-day and full-day kindergarten, then compare the difference in the average speed across the two groups over time. 
+
+### Attribute 2: Fluency
+
+- *Measurable definition*: Student has the ability to read a passage of text smoothly with minimal pauses, gaps, and prolonged vowels.
+- *Ideal measurement*: Use some sort of peer-reviewed fluency scale or grading system to measure the number of pauses, accounting for length and difficulty of words (since it's easier to read "Sam has a cat" smoothly than more complex sentences). I have no idea if anything like that exists in the real world though.
+- *Feasible measurement*: Have students read a passage to a teacher and ask the teacher to evaluate their fluency on a Likert scale like "Little fluency," "Somewhat fluent," "Fluent," and "Highly fluent." This won't be standard across schools, or even across teachers, but it's something.
+- *Measurement of program effect*: Measure the average reading fluency at the beginning of every month in both half-day and full-day kindergarten, then compare the difference in the average fluency across the two groups over time. 
+
+### Attribute 3: Comprehension
+
+- *Measurable definition*: Student has the ability to understand a passage of text and summarize it through spoken words after reading it.
+- *Ideal measurement*: Have students read a passage of text, wait some length of time, and then ask them to summarize what they've read. Use some sort of peer-reviewed scale that measures the complexity of their summary (i.e. if summarizing *Green Eggs and Ham*, a summary like "Sam I Am made his friend try new food" would score way lower than "Sam I Am convinced his friend to try new food by annoying him in lots of different places, and the friend ended up liking the food—it's a good example of peer pressure and openness to new experiences.") Again, I don't know if there's a standard way to measure this in real life.
+- *Feasible measurement*: Have students read a passage out loud and then summarize the story. Ask the teacher to evaluate their comprehension on a scale of 1-5 or 1-10. Like fluency, this won't be standard across schools or teachers, but it's an attempt.
+- *Measurement of program effect*: Measure the average reading comprehension at the beginning of every month in both half-day and full-day kindergarten, then compare the difference in the average comprehension across the two groups over time. 
+
+
+# Part 2: Measurement and abstraction for your program
+
+Hopefully you went through the same exercise above for your program.
